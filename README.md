@@ -1,24 +1,21 @@
-# README
+README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby Version : 2.7.0
 
-Things you may want to cover:
+Rails version : 6.0.2
 
-* Ruby version
+Node js version > 8
 
-* System dependencies
+Installation Steps:
 
-* Configuration
+i) git clone https://github.com/jainakansha0017/place_sharing.git
 
-* Database creation
+ii) cd place_sharing
 
-* Database initialization
+iii) bundle install
 
-* How to run the test suite
+iv) rails db:migrate
 
-* Services (job queues, cache servers, search engines, etc.)
+v) rake db:seed
 
-* Deployment instructions
-
-* ...
+vi) rails s
