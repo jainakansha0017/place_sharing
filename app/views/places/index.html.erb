@@ -1,0 +1,41 @@
+<div class="container pt-3">
+  <header><h2 lass="display-4">Hi <%= current_user.name %></h2></header>
+  <div class= "row">
+    <div class="col-sm-6">
+      <%= link_to 'Add place', new_place_path, class: 'btn btn-primary' %>
+    </div>
+    <div class="col-sm-6">
+      <% if user_signed_in? %>
+        <%= link_to('Logout', destroy_user_session_path, method: :get) %>
+      <% else %>
+        <%= link_to('Login', new_user_session_path) %>
+      <% end %>
+    </div>
+  </div>
+  <br>
+  <% if @places.count > 0 %>
+    <strong>Places shared by me:</strong>
+    <div class="card">
+      <div class="card-block">
+        <ul>
+          <%= render @places %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @shared_places.count > 0 %>
+    <strong>Places shared by others:</strong>
+    <div class="card">
+      <div class="card-block">
+        <ul>
+          <% @shared_places.each do |shared_place| %>
+            <li><%= link_to shared_place.street, "/places/#{shared_place.id}" %>
+                shared by <%= shared_place.user.name %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+</div>

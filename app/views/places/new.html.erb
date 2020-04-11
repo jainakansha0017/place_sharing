@@ -1,0 +1,26 @@
+<div class="container pt-3">
+  <header><h1 class="display-4">Add Place</h1></header>
+
+  <%= render 'form' %>
+</div>
+
+<script>
+
+    $("#is_public").change(function(){
+      if(this.checked)
+      {
+        $("#share_user").hide();
+        $("#submit").show();
+      }
+      else
+      {
+        $("#share_user").show();
+        $("#submit").hide();
+      }
+    })
+
+    $("#people").click(function(){
+      $("#submit").show();
+    })
+
+</script>

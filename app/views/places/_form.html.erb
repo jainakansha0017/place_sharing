@@ -1,0 +1,33 @@
+<%= form_for @place do |f| %>
+  <fieldset class="form-group">
+    <%= f.label :street %>
+    <%= f.text_field :street, required: :true, class: "form-control" %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label :city, 'City' %>
+    <%= f.text_field :city, class: "form-control" %>
+  </fieldset>
+
+   <fieldset class="form-group">
+    <%= f.label :state, 'State' %>
+    <%= f.text_field :state, class: "form-control" %>
+  </fieldset>
+
+   <fieldset class="form-group">
+    <%= f.label :country, 'Country' %>
+    <%= f.text_field :country, class: "form-control" %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <label> Shared Publicly </label>
+    <%= check_box_tag 'is_public', 'yes', true %>
+  </fieldset>
+
+  <fieldset class="form-group" style="display:none" id = "share_user">
+    <label>Share to</label>
+    <%= select_tag "people", options_from_collection_for_select(User.where.not(id: current_user.id), "id", "name", "1"), multiple: true %>
+  </fieldset>
+
+  <%= f.submit 'Add!', class: 'btn btn-primary', id: "submit" %>
+<% end %>
