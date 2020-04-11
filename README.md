@@ -1,7 +1,9 @@
 # README
 
 Ruby Version : 2.7.0
+
 Rails version : 6.0.2
+
 Node js version > 8
 
 Installation Steps:
